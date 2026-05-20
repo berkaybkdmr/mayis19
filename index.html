@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEFİYE'M</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="site-shell">
+      <section class="intro-screen" aria-labelledby="intro-title">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+
+        <div class="intro-content">
+          <p class="eyebrow">1. yılımıza</p>
+          <h1 id="intro-title">NEFİYE'M</h1>
+          <div class="love-note">
+            <p>
+              Bazen seni kırdığım, seni yeterince iyi anlayamadığım, sevgimi hak
+              ettiğin kadar güzel gösteremediğim anlar oldu. Bunların hiçbirine
+              bahane bulmak istemiyorum. Sadece bilmeni istiyorum ki, sen benim
+              için çok değerlisin ve kalbinde açtığım en küçük kırgınlığı bile
+              onarmak istiyorum.
+            </p>
+            <p>
+              1 yıl boyunca yeri geldi üzüldük yeri geldi sevindik ama hep
+              beraberdik. Bana çok iyi geliyordun ve böyle devam etsin
+              istiyorum. Düşüncesizliğim yüzünden bazı şeyleri berbat ediyorum
+              ama şu an tek istediğim şey sensin; tekrardan konuşmak, günümü
+              anlatmak, hatta hiç konuşmasak bile yanımda olduğunu bilmek bile
+              beni iyi hissettiriyor.
+            </p>
+            <p>
+              Ben artık seni özlemek istemiyorum. Özlediğimde konuşabilmek,
+              görebilmek istiyorum. Her şeyin başladığı tarihte tekrardan,
+              yeniden ve daha güzel şekilde konuşmaya başlamak istiyorum. Seni
+              çok seviyorum.
+            </p>
+          </div>
+
+          <p class="forgive-question">Beni Affeder Misin?</p>
+          <div class="forgive-actions">
+            <button class="primary-action forgive-yes" id="yesButton" type="button">
+              <span>Evet</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </button>
+            <button class="no-action" id="noButton" type="button">Hayır</button>
+          </div>
+        </div>
+
+        <div class="date-mark" aria-hidden="true">
+          <span>365 gün</span>
+          <span>tek hikaye</span>
+        </div>
+      </section>
+
+      <section class="memory-screen" aria-label="Fotoğraf akışı">
+        <header class="memory-header">
+          <div>
+            <p class="eyebrow">Anılarımız</p>
+            <h2>Beraber biriktirdiğimiz güzel anlar</h2>
+          </div>
+          <div class="memory-actions">
+            <div class="game-cta">
+              <p>Canın sıkılıyordu. Belki biraz yardım edebilmişimdir 💕</p>
+              <div class="game-button-row">
+                <button class="ghost-action" id="openGameButton" type="button">
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M10 3h4v4h-4z" />
+                    <path d="M3 10h4v4H3z" />
+                    <path d="M17 10h4v4h-4z" />
+                    <path d="M10 17h4v4h-4z" />
+                  </svg>
+                  <span>Anı Oyunu</span>
+                </button>
+                <button class="ghost-action" id="openPuzzleButton" type="button">
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M4 4h7v7H4z" />
+                    <path d="M13 4h7v7h-7z" />
+                    <path d="M4 13h7v7H4z" />
+                    <path d="M13 13h7v7h-7z" />
+                  </svg>
+                  <span>Foto Puzzle</span>
+                </button>
+              </div>
+            </div>
+            <button class="ghost-action" id="restartButton" type="button">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+              <span>Başa dön</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="game-panel" id="gamePanel" aria-label="Anı eşleştirme oyunu" hidden>
+          <div class="game-intro-notice" id="gameIntroNotice" role="dialog" aria-labelledby="gameIntroTitle">
+            <div class="game-intro-card">
+              <p class="eyebrow">Küçük bir oyun</p>
+              <h4 id="gameIntroTitle">Anıları eşleştirelim</h4>
+              <p>
+                İki aynı anıyı bul; tüm kartlar eşleşince küçük bir mesaj seni
+                bekliyor.
+              </p>
+              <button class="primary-action game-start-action" id="startGameButton" type="button">
+                Oyuna başla
+              </button>
+            </div>
+          </div>
+
+          <div class="game-win-notice" id="gameWinNotice" role="dialog" aria-labelledby="gameWinTitle" hidden>
+            <div class="game-intro-card">
+              <p class="eyebrow">Tamamlandı</p>
+              <h4 id="gameWinTitle">Bütün anılar yerini buldu</h4>
+              <p>
+                Tebrikler! Bütün anılarımızı tamamladın. Bu resimler aslında
+                bir anıdan daha fazlası. Bunlar benim hayatımın özeti.
+                Tekrardan hayata dönmeyi çok özledim :)
+              </p>
+              <button class="primary-action game-start-action" id="closeWinButton" type="button">
+                Anılara dön
+              </button>
+            </div>
+          </div>
+
+          <div class="game-panel-header">
+            <div>
+              <p class="eyebrow">Anı Oyunu</p>
+              <h3>Birbirimizi bulduğumuz oyun</h3>
+            </div>
+            <div class="game-controls">
+              <span class="move-counter" id="moveCounter">0 hamle</span>
+              <button class="ghost-action compact-action" id="shuffleGameButton" type="button">
+                Yeniden karıştır
+              </button>
+              <button class="ghost-action compact-action" id="closeGameButton" type="button">
+                Fotoğraflara dön
+              </button>
+            </div>
+          </div>
+          <div class="match-grid" id="matchGrid"></div>
+          <p class="game-message" id="gameMessage">
+            İki aynı anıyı bul; tüm kartlar eşleşince küçük bir mesaj seni bekliyor.
+          </p>
+        </section>
+
+        <section class="game-panel puzzle-panel" id="puzzlePanel" aria-label="Fotoğraf puzzle oyunu" hidden>
+          <div class="game-intro-notice" id="puzzleIntroNotice" role="dialog" aria-labelledby="puzzleIntroTitle">
+            <div class="game-intro-card">
+              <p class="eyebrow">Foto Puzzle</p>
+              <h4 id="puzzleIntroTitle">Bir anıyı tamamlayalım</h4>
+              <p>
+                Bir fotoğrafı parçalara ayırdım. İki parçaya dokunup yerlerini
+                değiştir; fotoğraf tamamlanınca küçük bir sürpriz var.
+              </p>
+              <button class="primary-action game-start-action" id="startPuzzleButton" type="button">
+                Puzzle'a başla
+              </button>
+            </div>
+          </div>
+
+          <div class="game-win-notice" id="puzzleWinNotice" role="dialog" aria-labelledby="puzzleWinTitle" hidden>
+            <div class="game-intro-card">
+              <p class="eyebrow">Tamamlandı</p>
+              <h4 id="puzzleWinTitle">Anı yeniden tamamlandı</h4>
+              <p>
+                Parça parça dağılsa bile güzel olan şeyler tekrar bir araya
+                gelebiliyor. Bu fotoğraf gibi, ben de bizi yeniden tamamlamak
+                istiyorum.
+              </p>
+              <button class="primary-action game-start-action" id="closePuzzleWinButton" type="button">
+                Fotoğraflara dön
+              </button>
+            </div>
+          </div>
+
+          <div class="game-panel-header">
+            <div>
+              <p class="eyebrow">Foto Puzzle</p>
+              <h3>Dağılmış bir anıyı toparlayalım</h3>
+            </div>
+            <div class="game-controls">
+              <span class="move-counter" id="puzzleMoveCounter">0 hamle</span>
+              <button class="ghost-action compact-action" id="shufflePuzzleButton" type="button">
+                Yeni fotoğraf
+              </button>
+              <button class="ghost-action compact-action" id="closePuzzleButton" type="button">
+                Fotoğraflara dön
+              </button>
+            </div>
+          </div>
+
+          <div class="puzzle-stage">
+            <div class="puzzle-grid" id="puzzleGrid" aria-label="Puzzle parçaları"></div>
+            <figure class="puzzle-preview">
+              <img id="puzzlePreview" alt="Tamamlanacak fotoğraf" />
+              <figcaption>Tamamlanacak fotoğraf</figcaption>
+            </figure>
+          </div>
+          <p class="game-message" id="puzzleMessage"></p>
+        </section>
+
+        <div class="stream-wrap">
+          <div class="photo-stream stream-a" id="streamA"></div>
+          <div class="photo-stream stream-b" id="streamB"></div>
+        </div>
+
+        <p class="bottom-love-note">
+          <span class="note-spark note-spark-left" aria-hidden="true"></span>
+          <span class="note-heart note-heart-left" aria-hidden="true"></span>
+          ÇOK GÜZEL GÜLÜYOSUN. TEK DİLEĞİM GÜLÜŞÜNÜN HİÇ SOLMAMASI
+          <span class="note-heart note-heart-right" aria-hidden="true"></span>
+          <span class="note-spark note-spark-right" aria-hidden="true"></span>
+        </p>
+      </section>
+
+      <section class="letter-modal" id="letterModal" aria-labelledby="letterTitle" hidden>
+        <div class="letter-backdrop" id="letterBackdrop"></div>
+        <div class="letter-card" role="dialog" aria-modal="true">
+          <button class="letter-close" id="letterCloseButton" type="button" aria-label="Mektubu kapat">
+            ×
+          </button>
+          <div class="letter-envelope" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="letter-lock" id="letterLock">
+            <p class="eyebrow">Gizli mektup</p>
+            <h4 id="letterTitle">Bu mektubu sadece sen açabilirsin</h4>
+            <p class="letter-question" id="letterQuestion">
+              Sevgili olduğumuz tarih? (örnek yazım: 5kasım)
+            </p>
+            <form class="letter-form" id="letterForm">
+              <input
+                id="letterAnswer"
+                type="text"
+                autocomplete="off"
+                placeholder="Cevabın..."
+                aria-label="Gizli mektup cevabı"
+              />
+              <button class="primary-action letter-submit" type="submit">Mektubu aç</button>
+            </form>
+            <p class="letter-error" id="letterError" aria-live="polite"></p>
+          </div>
+          <article class="letter-paper" id="letterPaper" hidden>
+            <p class="eyebrow">Sana sakladığım şey</p>
+            <h4 id="letterPaperTitle">Nefiye'm</h4>
+            <div id="letterPaperBody"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
