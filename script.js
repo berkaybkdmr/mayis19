@@ -705,7 +705,19 @@ function addLetterSong(song) {
 function openSecretLetter(letter = secretLetters[0]) {
   stopLetterAudio();
   selectedSecretLetter = letter;
+  
+  // 1. Remove hidden attribute so it renders in the DOM
   letterModal.hidden = false;
+  
+  // 2. Clear any active close transitions
+  letterModal.classList.remove("is-leaving");
+  
+  // 3. Force a browser reflow to ensure the transition is registered
+  void letterModal.offsetWidth;
+  
+  // 4. Add is-visible class to trigger transitions
+  letterModal.classList.add("is-visible");
+
   letterModal.classList.remove("is-blue", "is-peach", "is-green");
   if (letter.theme && letter.theme !== "pink") {
     letterModal.classList.add(`is-${letter.theme}`);
@@ -728,7 +740,18 @@ function openSecretLetter(letter = secretLetters[0]) {
 
 function closeSecretLetter() {
   stopLetterAudio();
-  letterModal.hidden = true;
+  
+  // 1. Remove is-visible and add is-leaving
+  letterModal.classList.remove("is-visible");
+  letterModal.classList.add("is-leaving");
+  
+  // 2. Hide completely after transition completes (400ms transition + buffer)
+  window.setTimeout(() => {
+    if (letterModal.classList.contains("is-leaving")) {
+      letterModal.hidden = true;
+      letterModal.classList.remove("is-leaving");
+    }
+  }, 420);
 }
 
 function unlockSecretLetter() {
@@ -968,4 +991,54 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+function closeWelcomeOverlay() {
+  const overlay = document.getElementById("welcomeOverlay");
+  if (!overlay || overlay.classList.contains("is-leaving")) return;
+
+  overlay.classList.remove("is-visible");
+  overlay.classList.add("is-leaving");
+
+  // Wait for the exit transition to finish before setting display to none
+  window.setTimeout(() => {
+    overlay.style.display = "none";
+  }, 780);
+}
+
+function showWelcomeOverlay() {
+  const overlay = document.getElementById("welcomeOverlay");
+  if (!overlay) return;
+
+  // 100ms gecikmeyle görünür yap (giriş efekti)
+  window.setTimeout(() => {
+    overlay.classList.add("is-visible");
+  }, 100);
+
+  // Kapatma butonuna basıldığında overlay'i kapat
+  const closeBtn = document.getElementById("closeWelcomeBtn");
+  let autoCloseTimeout;
+
+  const handleClose = (event) => {
+    if (event) event.stopPropagation();
+    if (autoCloseTimeout) window.clearTimeout(autoCloseTimeout);
+    closeWelcomeOverlay();
+  };
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", handleClose);
+  }
+
+  // Boş alana tıklandığında da kapansın
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+      handleClose(event);
+    }
+  });
+
+  // 5 saniye durduktan sonra otomatik kapat
+  autoCloseTimeout = window.setTimeout(() => {
+    closeWelcomeOverlay();
+  }, 5000);
+}
+
 render();
+showWelcomeOverlay();

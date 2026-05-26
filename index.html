@@ -10,9 +10,29 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260526b" />
   </head>
   <body>
+    <!-- Girişteki soft pembe kalpli not kutucuğu overlay'i -->
+    <div id="welcomeOverlay" class="welcome-overlay" aria-live="polite">
+      <div class="welcome-box">
+        <button class="welcome-close-btn" id="closeWelcomeBtn" type="button" aria-label="Kapat">×</button>
+        <span class="heart-decoration heart-top-left" aria-hidden="true">♥</span>
+        <span class="heart-decoration heart-top-right" aria-hidden="true">♥</span>
+        <span class="heart-decoration heart-bottom-left" aria-hidden="true">♥</span>
+        <span class="heart-decoration heart-bottom-right" aria-hidden="true">♥</span>
+        
+        <p class="welcome-text-line line-1">Sevgi hevesin bitene kadar,</p>
+        <p class="welcome-text-line line-2">Aşk nefesin bitene kadar</p>
+        <span class="welcome-signature">aşkım</span>
+        
+        <!-- Yüzen arka plan kalpleri -->
+        <span class="floating-heart fh-1" aria-hidden="true">♥</span>
+        <span class="floating-heart fh-2" aria-hidden="true">♥</span>
+        <span class="floating-heart fh-3" aria-hidden="true">♥</span>
+      </div>
+    </div>
+
     <main class="site-shell">
       <section class="intro-screen" aria-labelledby="intro-title">
         <div class="ambient ambient-one"></div>
@@ -260,6 +280,6 @@
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260526b"></script>
   </body>
 </html>
