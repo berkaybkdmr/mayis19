@@ -1805,6 +1805,18 @@ h4 {
     animation: flow-right 38s linear infinite !important;
   }
 
+  .match-card.is-celebrating {
+    animation: match-pop 520ms ease both !important;
+  }
+
+  .confetti-piece {
+    animation: confetti-burst 720ms ease-out forwards !important;
+  }
+
+  .modal-confetti-piece {
+    animation: confetti-burst 820ms ease-out forwards !important;
+  }
+
   .welcome-overlay {
     transition:
       opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
